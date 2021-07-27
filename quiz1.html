@@ -1,0 +1,38 @@
+<div class="rown-sm" style="text-align: center;padding-top: 10%" ng-show="!inProgess">
+    <button class="btn btn-primary" ng-click="start()">Bắt đầu bài kiểm tra</button>
+</div><br>
+<div ng-show="inProgess" class="row-sm">
+    <h2 style="text-align: center; color:#31708f;"><b>Thời gian làm bài còn lại :</b> <span
+            id="time"><b>{{timer.minutes}}:{{timer.seconds}}</b></span><b> phút !</b></h2>
+            <h4 style><label>Điểm: {{score}}/{{id}}</label></h4>
+    <div class=" panel panel-info">
+        <div class="panel panel-heading">
+            <h4><b>{{sjname}}</b></h4>
+            <p>câu hỏi {{id}}/10</p>
+        </div>
+        <div class="panel-body">
+            <div>
+                <label for="" style="font-weight: 800px;">{{question}}</label>
+                <hr>
+                <div class="form-check" ng-repeat="option in options">
+                    <input type="radio" name="answer" id="answer" value="{{option.Id}}">
+                    <label for="answer">{{option.Text}}</label>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div ng-show="answerMode">
+                <button ng-click="checkAnswer()" class="btn btn-primary"style="background-color:#31708f">Đồng ý</button>
+            </div>
+            <div ng-show="!answerMode">
+                <button ng-click="nextQuestion()" class="btn btn-info"style="background-color:#31708f">Câu tiếp theo</button>
+            </div>
+        </div>
+    </div>
+</div><br>
+<div ng-show="inProgess">
+    <div class="rown-sm" style="text-align: center;" ng-show="quizend">
+        <button class="btn btn-default" ng-click="end()">Kết thúc bài kiểm tra</button>
+    </div>
+</div>
+<br>
